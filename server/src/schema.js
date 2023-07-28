@@ -9,6 +9,20 @@ const typeDefs = gql`
     "Fetch a specific module, provided a module's ID"
     module(id: ID!): Module!
   }
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    "This is the code similar to HTTP status codes"
+    code: Int!
+    "This is the message corresponding to the code"
+    success: Boolean!
+    "This is the message corresponding to the code"
+    message: String!
+    "This is the track that was incremented"
+    track: Track
+  }
 
   "A track is a group of Modules that teaches about a specific topic"
   type Track {
